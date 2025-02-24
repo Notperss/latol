@@ -13,7 +13,9 @@ class SubLocationController extends Controller
      */
     public function index()
     {
-        //
+        $subLocations = SubLocation::latest()->get();
+
+        return view('pages.location.sub-location.index', compact('subLocations'));
     }
 
     /**
