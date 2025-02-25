@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Company::class)->nullable()->constrained()->onDelete('cascade');
             $table->foreignIdFor(MainLocation::class)->constrained()->onDelete('cascade');
-            $table->string('sub_location');
+            $table->string('name');
             $table->longText('description')->nullable();
             $table->softDeletes();
             $table->timestamps();

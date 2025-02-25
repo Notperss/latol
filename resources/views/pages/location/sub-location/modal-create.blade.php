@@ -1,5 +1,5 @@
-<div class="modal fade" id="modal-form-add-mainLocation" tabindex="-1" aria-hidden="true"
-  aria-labelledby="modal-form-add-mainLocation-label" style="display: none;">
+<div class="modal fade" id="modal-form-add-subLocation" tabindex="-1" aria-hidden="true"
+  aria-labelledby="modal-form-add-subLocation-label" style="display: none;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,14 +9,32 @@
 
       <div class="modal-body">
         <div class="text-center mb-6">
-          <h4 class="role-title mb-2">Tambah Lokasi Utama</h4>
+          <h4 class="role-title mb-2">Tambah Sub Lokasi</h4>
         </div>
 
-        <form action="{{ route('mainLocation.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('subLocation.store') }}" method="post" enctype="multipart/form-data">
           @csrf
 
           <div class="mb-2">
-            <label for="name" class="form-label">Lokasi Utama <code>*</code> </label>
+            <label for="main_location_id" class="form-label">Lokasi Utama <code>*</code> </label>
+            <select type="text" class="form-control @error('main_location_id') is-invalid @enderror"
+              id="main_location_id" name="main_location_id" required>
+              <option value="">Choose</option>
+              @foreach ($mainLocations as $mainLocation)
+                <option value="{{ $mainLocation->id }}">{{ $mainLocation->name }}</option>
+              @endforeach
+            </select>
+            @error('main_location_id')
+              <a style="color: red">
+                <small>
+                  {{ $message }}
+                </small>
+              </a>
+            @enderror
+          </div>
+
+          <div class="mb-2">
+            <label for="name" class="form-label">Sub Lokasi <code>*</code> </label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
               required>
             @error('name')

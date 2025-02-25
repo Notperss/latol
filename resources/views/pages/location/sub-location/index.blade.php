@@ -15,6 +15,7 @@
           data-target="#modal-form-add-subLocation">
           Add
         </button>
+        @include('pages.location.sub-location.modal-create')
       </div>
     </div>
     <div class="card-body">
@@ -34,18 +35,19 @@
             @foreach ($subLocations as $subLocation)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $subLocation->sub_location }}</td>
+                <td>{{ $subLocation->mainLocation->name }}</td>
+                <td>{{ $subLocation->name }}</td>
                 <td>{{ $subLocation->description }}</td>
                 <td>
                   <div class="demo-inline-spacing">
 
-                    {{-- 
-                      <a data-toggle="modal" data-target="#modal-form-edit-subLocation-{{ $subLocation->id }}"
-                        class="btn btn-sm btn-secondary text-white">
-                        <i data-feather="edit"></i>
-                      </a>
-                      @include('management-access.subLocation.modal-edit')
-                     --}}
+
+                    <a data-toggle="modal" data-target="#modal-form-edit-subLocation-{{ $subLocation->id }}"
+                      class="btn btn-sm btn-secondary text-white">
+                      <i data-feather="edit"></i>
+                    </a>
+                    @include('pages.location.sub-location.modal-edit')
+
 
                     <a onclick="showSweetAlert('{{ $subLocation->id }}')" title="Delete"
                       class="btn btn-sm btn-danger text-white">

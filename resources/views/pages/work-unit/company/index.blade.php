@@ -5,6 +5,7 @@
 @section('breadcrumb')
   <x-breadcrumb title="Perusahaan" page="Unit Kerja" active="Perusahaan" route="{{ route('company.index') }}" />
 @endsection
+
 <!-- Content -->
 <section class="section">
   <div class="card">
@@ -49,10 +50,10 @@
                 </td>
                 <td>
                   <div class="demo-inline-spacing">
-                    @can('company.update')
+                    @can('company.index')
                       <a data-toggle="modal" data-target="#modal-form-edit-company-{{ $company->id }}"
                         class="btn btn-sm btn-secondary text-white">
-                        <i>data-feather="edit"></i>
+                        <i data-feather="edit"></i>
                       </a>
                       @include('pages.work-unit.company.modal-edit')
                     @endcan

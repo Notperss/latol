@@ -16,7 +16,7 @@ class MainLocationController extends Controller
      */
     public function index()
     {
-        $mainLocations = MainLocation::latest()->get();
+        $mainLocations = MainLocation::where('company_id', Auth::user()->company_id)->latest()->get();
 
         return view('pages.location.main-location.index', compact('mainLocations'));
     }
@@ -35,11 +35,11 @@ class MainLocationController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'main_location' => ['required', 'max:255',],
+            'name' => ['required', 'max:255',],
             // Add other validation rules as needed
         ], [
-            'main_location.required' => 'Nama Lokasi Utama harus diisi.',
-            'main_location.max' => 'Nama Lokasi Utama tidak boleh lebih dari :max karakter.',
+            'name.required' => 'Nama Lokasi Utama harus diisi.',
+            'name.max' => 'Nama Lokasi Utama tidak boleh lebih dari :max karakter.',
             // Add custom error messages for other rules
         ]);
         if ($validator->fails()) {
@@ -77,11 +77,11 @@ class MainLocationController extends Controller
     public function update(Request $request, MainLocation $mainLocation)
     {
         $validator = Validator::make($request->all(), [
-            'main_location' => ['required', 'max:255',],
+            'name' => ['required', 'max:255',],
             // Add other validation rules as needed
         ], [
-            'main_location.required' => 'Nama Sub Lokasi harus diisi.',
-            'main_location.max' => 'Nama Sub Lokasi tidak boleh lebih dari :max karakter.',
+            'name.required' => 'Nama Sub Lokasi harus diisi.',
+            'name.max' => 'Nama Sub Lokasi tidak boleh lebih dari :max karakter.',
             // Add custom error messages for other rules
         ]);
         // Check if validation fails

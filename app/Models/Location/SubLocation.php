@@ -12,12 +12,12 @@ class SubLocation extends Model
     protected $fillable = [
         'company_id',
         'main_location_id',
-        'sub_location',
+        'name',
         'description',
-        'is_active',
+        // 'is_active',
     ];
 
-    public function MainLocations()
+    public function MainLocation()
     {
         return $this->belongsTo(MainLocation::class);
     }

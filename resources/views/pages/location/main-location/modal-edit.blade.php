@@ -17,11 +17,10 @@
 
 
           <div class="mb-2">
-            <label for="main_location" class="form-label">Lokasi Utama <code>*</code> </label>
-            <input type="text" value="{{ $mainLocation->main_location }}"
-              class="form-control @error('main_location') is-invalid @enderror" id="main_location" name="main_location"
-              required>
-            @error('main_location')
+            <label for="name" class="form-label">Lokasi Utama <code>*</code> </label>
+            <input type="text" value="{{ $mainLocation->name }}"
+              class="form-control @error('name') is-invalid @enderror" id="name" name="name" required>
+            @error('name')
               <a style="color: red">
                 <small>
                   {{ $message }}

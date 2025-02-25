@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('main_locations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Company::class)->nullable()->constrained()->onDelete('cascade');
-            $table->string('main_location');
+            $table->string('name');
             $table->longText('description')->nullable();
             $table->softDeletes();
             $table->timestamps();

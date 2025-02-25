@@ -11,11 +11,11 @@ class MainLocation extends Model
 
     protected $fillable = [
         'company_id',
-        'main_location',
+        'name',
         'description',
     ];
 
-    public function SubLocation()
+    public function SubLocations()
     {
         return $this->hasMany(SubLocation::class);
     }

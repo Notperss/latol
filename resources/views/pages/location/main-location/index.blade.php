@@ -34,7 +34,7 @@
             @foreach ($mainLocations as $mainLocation)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $mainLocation->main_location }}</td>
+                <td>{{ $mainLocation->name }}</td>
                 <td>{{ $mainLocation->description }}</td>
                 <td>
                   <div class="demo-inline-spacing">
