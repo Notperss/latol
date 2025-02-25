@@ -1,20 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\DailyActivity;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DailyActivity extends Model
+class WorkType extends Model
 {
     use SoftDeletes;
-
     protected $fillable = [
         'company_id',
-        'sub_location_id',
-        'user_id',
-        'start_date',
-        'end_date',
+        'name',
         'description',
         'status',
     ];

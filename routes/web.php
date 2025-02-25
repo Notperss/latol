@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\DailyActivity\DailyActivityController;
+use App\Http\Controllers\DailyActivity\WorkTypeController;
 use App\Http\Controllers\Location\MainLocationController;
 use App\Http\Controllers\Location\SubLocationController;
 use App\Http\Controllers\WorkUnit\CompanyController;
@@ -49,6 +51,12 @@ Route::group(['middleware' => ['web', 'auth', 'verified',]], function () {
 
     Route::resource('subLocation', SubLocationController::class)->except('index');
     Route::get('sub-location', [SubLocationController::class, 'index'])->name('subLocation.index');
+
+    Route::resource('workType', WorkTypeController::class)->except('index');
+    Route::get('work-type', [WorkTypeController::class, 'index'])->name('workType.index');
+
+    Route::resource('dailyActivity', DailyActivityController::class)->except('index');
+    Route::get('daily-activity', [DailyActivityController::class, 'index'])->name('dailyActivity.index');
 });
 
 
