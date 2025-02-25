@@ -17,7 +17,7 @@ class WorkTypeController extends Controller
     {
         $workTypes = WorkType::where('company_id', Auth::user()->company_id)->latest()->get();
 
-        return view('pages.daily-activity.work-type.index', compact('workTypes'));
+        return view('pages.work-type.index', compact('workTypes'));
     }
 
     /**
